@@ -32,10 +32,11 @@ $(function() {
          */
          it('URL is defined', function() {
            allFeeds.forEach(function(feed) {
-             expect(feed.url)toBeDefined();
+             expect(feed.url).toBeDefined();
              expect(feed.url.length).not.toBe(0);
            });
          });
+      });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
@@ -43,9 +44,10 @@ $(function() {
          */
          it('Name is defined', function() {
            allFeeds.forEach(function(feed) {
-             expect(feed.name)toBeDefined();
+             expect(feed.name).toBeDefined();
              expect(feed.name.length).not.toBe(0);
-    });
+           });
+         });
 
 
     /* TODO: Write a new test suite named "The menu" */
@@ -56,8 +58,10 @@ $(function() {
        * the CSS to determine how we're performing the
        * hiding/showing of the menu element.
        */
+       var body = $('body');
+
        it('menu element is hidden by default', function() {
-         expect(document.body.hasClass('menu-hidden')).toBe(true);
+         expect(body.hasClass('menu-hidden')).toBe(true);
      });
 
      /* TODO: Write a test that ensures the menu changes
@@ -66,11 +70,11 @@ $(function() {
       * clicked and does it hide when clicked again.
       */
       it('menu changes visibility when the menu icon is clicked', function() {
-        document.querySelector("menu-icon-link").trigger('click');
-        expect(document.body.hasClass('menu-hidden')).toBe(false);
+        document.querySelector('.menu-icon-link').click();
+        expect(body.hasClass('menu-hidden')).toBe(false);
 
-        document.querySelector("menu-icon-link").trigger('click');
-        expect(document.body.hasClass('menu-hidden')).toBe(true);
+        document.querySelector('.menu-icon-link').click();
+        expect(body.hasClass('menu-hidden')).toBe(true);
       });
     });
 
@@ -90,7 +94,7 @@ $(function() {
        });
 
        it('there is at least one entry when loadFeed completed', function() {
-         expect(document.querySelector(".feed").getElementsByClassName("entry-link")).toBeDefined();
+         expect(document.querySelector('.feed').getElementsByClassName("entry-link")).toBeDefined();
        });
     });
 
@@ -104,18 +108,18 @@ $(function() {
 
        beforeEach(function(done) {
          loadFeed(0, function() {
-           var initialFeed = document.querySelector(".feed").innerHTML;
+           var initialFeed = document.querySelector('.feed').innerHTML;
          });
 
          loadFeed(1, function() {
-           var otherFeed = document.querySelector(".feed").innerHTML;
+           var otherFeed = document.querySelector('.feed').innerHTML;
          });
 
          done();
        });
 
        it('content actually changes', function() {
-         expect(initialFeed.).not.toBe(otherFeed);
+         expect(initialFeed).not.toBe(otherFeed);
        });
     });
 
