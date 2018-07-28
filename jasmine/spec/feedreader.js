@@ -108,18 +108,17 @@ $(function() {
 
        beforeEach(function(done) {
          loadFeed(0, function() {
-           var initialFeed = document.querySelector('.feed').innerHTML;
+           initialFeed = $('.feed').html();
+           loadFeed(1, function() {
+             done();
+           });
          });
-
-         loadFeed(1, function() {
-           var otherFeed = document.querySelector('.feed').innerHTML;
-         });
-
-         done();
        });
 
-       it('content actually changes', function() {
+       it('content actually changes', function(done) {
+         otherFeed = $('.feed').html();
          expect(initialFeed).not.toBe(otherFeed);
+         done ();
        });
     });
 
