@@ -10,7 +10,7 @@ The project's goal is to implement JavaScript testing with the use of Jasmin fra
 
 ## Technologies ##
 
-Jasmine 2.1.2
-jQuery
-HTML5
-CSS3
+- Jasmine 2.1.2
+- jQuery
+- HTML5
+- CSS3
